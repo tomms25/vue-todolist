@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/master.css">
+    <title>Todolistt</title>
+</head>
+<body>
+
+    <div id="app" class="container">
+
+        <h1 class="title">
+            To-Do List
+        </h1>
+
+        <div class="new-tasks">
+          <input type="text" 
+          placeholder="Aggiungi elementi" 
+          v-model="newTask" 
+          @keyup.enter="addTask">
+
+          <button @click="addTask">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+    
+        </div>
+    
+        <!-- lista delle task aggiunte da user -->
+        <div class="tasks-list">
+          <ul>
+            <li class="task" 
+            v-for="(task, i) in tasks" 
+            :class="task.done === true ? 'line' : ''">
+              <input type="checkbox" id="checkbox" v-model="task.done"/>
+              {{task.text}}
+              <i class="fa-solid fa-circle-xmark" @click="removeTask(i)"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+
+
+
+
+
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script text="text/javascript" src="js/main.js"></script>
+    
+</body>
+</html>
